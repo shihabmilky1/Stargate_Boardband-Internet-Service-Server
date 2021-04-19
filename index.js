@@ -99,6 +99,18 @@ client.connect(err => {
             res.send(result. modifiedCount > 0)
         })
     })
+    app.post('/makeAdmin',(req,res)=>{
+        admin.insertOne(req.body)
+        .then(result => {
+            res.send(result.insertedCount > 0)
+        })
+    })
+    app.post('/addService',(req,res)=>{
+        serviceCollection.insertOne(req.body)
+        .then(result => {
+            res.send(result.insertedCount > 0)
+        })
+    })
 });
 
 
