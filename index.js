@@ -111,6 +111,12 @@ client.connect(err => {
             res.send(result.insertedCount > 0)
         })
     })
+    app.delete('/deleteService/:id',(req,res)=>{
+        serviceCollection.deleteOne({_id: ObjectId(req.params.id)})
+        .then(result => {
+            res.send(result.deletedCount > 0)
+        })
+    })
 });
 
 
