@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const port = 3001
 require('dotenv').config();
 const MongoClient = require('mongodb').MongoClient;
-const uri = `mongodb+srv://shihab5:$shihab@cluster0.4czm1.mongodb.net/$stargate?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.4czm1.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express();
